@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NamedQueries(value = { @NamedQuery(name="Uf.selectAll", query="select e from Uf e order by e.nomeUf") } )
 @Table(name = "UF")
-public class Uf implements Serializable {
+public class UfRepository implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 

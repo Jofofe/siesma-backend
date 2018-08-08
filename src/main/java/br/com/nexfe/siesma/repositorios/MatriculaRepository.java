@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import java.util.List;
 		@NamedQuery(name="Matricula.selectAllNoDistinction", query="select e from Matricula e order by e.aluno.nome")	
 })
 @Table(name = "MATRICULA")
-public class Matricula implements Serializable {
+public class MatriculaRepository implements Serializable {
 	
 	private static final long serialVersionUID = 2751071098684390695L;
 
@@ -34,11 +34,11 @@ public class Matricula implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CURSO")
-	private Curso curso;
+	private CursoRepository curso;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_MODULO")
-	private Modulo modulo;
+	private ModuloRepository modulo;
 	
 	@Column(name = "DT_MATRICULA", nullable = false)
 	private Date dtMatricula;
@@ -52,17 +52,17 @@ public class Matricula implements Serializable {
 	@Column(name = "DT_CANCELAMENTO")
 	private Date dtCancelamento;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercial.class, mappedBy="matricula")
-	private List<LancamentoComercial> lancamentosComerciais;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercialRepository.class, mappedBy="matricula")
+	private List<LancamentoComercialRepository> lancamentosComerciais;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = PresencaMatricula.class, mappedBy="matricula")
-	private List<PresencaMatricula> presencasMatriculas;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = PresencaMatriculaRepository.class, mappedBy="matricula")
+	private List<PresencaMatriculaRepository> presencasMatriculas;
 	
 	@OneToMany(fetch = FetchType.LAZY, targetEntity = AvaliacaoNota.class, mappedBy="matricula")
 	private List<AvaliacaoNota> avaliacoesNotas;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, 
-			targetEntity = MatriculaDocumento.class, mappedBy="matricula")
-	private List<MatriculaDocumento> matriculasDocumentos;
+			targetEntity = MatriculaDocumentoRepository.class, mappedBy="matricula")
+	private List<MatriculaDocumentoRepository> matriculasDocumentos;
 	
 }

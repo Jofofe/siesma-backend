@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.util.List;
 		@NamedQuery(name="TipoLancamento.selectAllNoDistinction", query="select e from TipoLancamento e order by e.descricao") 
 } )
 @Table(name = "TIPO_LANCAMENTO")
-public class TipoLancamento implements Serializable {
+public class TipoLancamentoRepository implements Serializable {
 	
 	private static final long serialVersionUID = 5865432441665436228L;
 
@@ -31,11 +31,11 @@ public class TipoLancamento implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_UNIDADE_MEDIDA")
-	private UnidadeMedida unidadeMedida;
+	private UnidadeMedidaRepository unidadeMedida;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_TIPO_PAGAMENTO")
-	private TipoPagamento tipoPagamento;
+	private TipoPagamentoRepository tipoPagamento;
 	
 	@Column(name = "OBS_LANCAMENTO", length = 100)
 	private String obsLancamento;
@@ -43,7 +43,7 @@ public class TipoLancamento implements Serializable {
 	@Column(name = "STATUS", length = 20, nullable = false)
 	private String status;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercial.class, mappedBy="tipoLancamento")
-	private List<LancamentoComercial> lancamentosComerciais;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercialRepository.class, mappedBy="tipoLancamento")
+	private List<LancamentoComercialRepository> lancamentosComerciais;
 	
 }

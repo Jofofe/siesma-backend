@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NamedQueries(value = { @NamedQuery(name="TipoAvaliacao.selectAll", query="select e from TipoAvaliacao e order by e.nomeAvaliacao") } )
 @Table(name = "TIPO_AVALIACAO")
-public class TipoAvaliacao implements Serializable {
+public class TipoAvaliacaoRepository implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,7 @@ public class TipoAvaliacao implements Serializable {
 	@Column(name = "NOME_TIPO_AVALIACAO")
 	private String nomeAvaliacao;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = Avaliacao.class, mappedBy="tipoAvaliacao")
-	private List<Avaliacao> avaliacoes;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = AvaliacaoRepository.class, mappedBy="tipoAvaliacao")
+	private List<AvaliacaoRepository> avaliacoes;
 	
 }

@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -23,7 +23,7 @@ import java.util.List;
 				+ " m.aluno.idUsuario in (:idAluno) and :dataAtual < e.dtFim order by e.nome")
 } )
 @Table(name = "MODULO")
-public class Modulo implements Serializable {
+public class ModuloRepository implements Serializable {
 	
 	private static final long serialVersionUID = -1721700426616048551L;
 
@@ -34,7 +34,7 @@ public class Modulo implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CURSO")
-	private Curso curso;
+	private CursoRepository curso;
 	
 	@Column(name = "NOME_MODULO", length = 100, nullable = false)
 	private String nome;
@@ -45,13 +45,13 @@ public class Modulo implements Serializable {
 	@Column(name = "DT_FIM", nullable = false)
 	private Date dtFim;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = Disciplina.class, mappedBy="modulo")
-	private List<Disciplina> disciplinas;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = DisciplinaRepository.class, mappedBy="modulo")
+	private List<DisciplinaRepository> disciplinas;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = DescontoAplicado.class, mappedBy="modulo")
-	private List<DescontoAplicado> descontosAplicados;
-	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = Matricula.class, mappedBy="modulo")
-	private List<Matricula> matriculas;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = DescontoAplicadoRepository.class, mappedBy="modulo")
+	private List<DescontoAplicadoRepository> descontosAplicados;
+
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = MatriculaRepository.class, mappedBy="modulo")
+	private List<MatriculaRepository> matriculas;
 
 }

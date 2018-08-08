@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +14,7 @@ import java.util.Date;
 		+ " and :dataAtual between e.disciplina.dtInicio and e.disciplina.dtFim and :dataAtual between e.disciplina.modulo.dtInicio and e.disciplina.modulo.dtFim "
 		+ " and e.disciplina.modulo.curso.inExcluido = 'N' and e.empregado.dtFimVinculo is null order by e.disciplina.nome") } )
 @Table(name = "PROFESSOR_DISCIPLINA")
-public class ProfessorDisciplina implements Serializable {
+public class ProfessorDisciplinaRepository implements Serializable {
 	
 	private static final long serialVersionUID = -8680107554646482802L;
 
@@ -25,11 +25,11 @@ public class ProfessorDisciplina implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_EMPREGADO")
-	private Empregado empregado;
+	private EmpregadoRepository empregadoRepository;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_DISCIPLINA")
-	private Disciplina disciplina;
+	private DisciplinaRepository disciplina;
 	
 	@Column(name = "DT_INICIO", nullable = false)
 	private Date dtInicio;

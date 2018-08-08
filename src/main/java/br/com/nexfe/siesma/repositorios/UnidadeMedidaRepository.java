@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NamedQueries(value = { @NamedQuery(name="UnidadeMedida.selectAll", query="select e from UnidadeMedida e order by e.nomeUnidadeMedida") } )
 @Table(name = "UNIDADE_MEDIDA")
-public class UnidadeMedida implements Serializable {
+public class UnidadeMedidaRepository implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +25,7 @@ public class UnidadeMedida implements Serializable {
 	@Column(name = "NOME_UNIDADE_MEDIDA")
 	private String nomeUnidadeMedida;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = TipoLancamento.class, mappedBy="unidadeMedida")
-	private List<TipoLancamento> tiposLancamentos;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = TipoLancamentoRepository.class, mappedBy="unidadeMedida")
+	private List<TipoLancamentoRepository> tiposLancamentos;
 
 }

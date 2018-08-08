@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,7 +20,7 @@ import java.util.Date;
 		@NamedQuery(name="LancamentoComercial.selectAlunos", query="select e from LancamentoComercial e where e.empregado is null")
 } )
 @Table(name = "LANCAMENTO_COMERCIAL")
-public class LancamentoComercial implements Serializable {
+public class LancamentoComercialRepository implements Serializable {
 	
 	private static final long serialVersionUID = 2110315437815080324L;
 
@@ -31,23 +31,23 @@ public class LancamentoComercial implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_FORMA_PAGAMENTO")
-	private FormaPagamento formaPagamento;
+	private FormaPagamentoRepository formaPagamento;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_TIPO_LANCAMENTO")
-	private TipoLancamento tipoLancamento;
+	private TipoLancamentoRepository tipoLancamento;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_MATRICULA")
-	private Matricula matricula;
+	private MatriculaRepository matricula;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_DESCONTO")
-	private Desconto desconto;
+	private DescontoRepository desconto;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_EMPREGADO")
-	private Empregado empregado;
+	private EmpregadoRepository empregadoRepository;
 	
 	@Column(name = "VALOR_RECEBIMENTO", nullable = false)
 	private BigDecimal vlRecebimento;
@@ -67,7 +67,7 @@ public class LancamentoComercial implements Serializable {
 	@Transient
 	public String getNomeContemplado() {
 		if(this.matricula == null) {
-			return this.empregado.getNome();
+			return this.empregadoRepository.getNome();
 		} else {
 			return this.matricula.getAluno().getNome();
 		}

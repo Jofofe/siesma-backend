@@ -1,5 +1,9 @@
 package br.com.nexfe.siesma.entidades;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -15,6 +19,8 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@Getter
+@Setter
 @NamedQueries(value = { @NamedQuery(name="DescontoAplicado.selectAllDate", query="select e from DescontoAplicado e where e.aluno.dtFimVinculo is null "
 		+ "and :dataAtual between e.modulo.dtInicio and e.modulo.dtFim and :dataAtual between e.desconto.dtInicio and e.desconto.dtFim order by e.aluno.nome") } )
 @Table(name = "DESCONTO_APLICADO")
@@ -42,44 +48,4 @@ public class DescontoAplicado implements Serializable {
 	@Column(name = "OBS_DESCONTO_APLICADO", length = 100)
 	private String obsDesconto;
 
-	public Long getIdDescontoAplicado() {
-		return idDescontoAplicado;
-	}
-
-	public void setIdDescontoAplicado(Long idDescontoAplicado) {
-		this.idDescontoAplicado = idDescontoAplicado;
-	}
-
-	public Aluno getAluno() {
-		return aluno;
-	}
-
-	public void setAluno(Aluno aluno) {
-		this.aluno = aluno;
-	}
-
-	public Modulo getModulo() {
-		return modulo;
-	}
-
-	public void setModulo(Modulo modulo) {
-		this.modulo = modulo;
-	}
-
-	public Desconto getDesconto() {
-		return desconto;
-	}
-
-	public void setDesconto(Desconto desconto) {
-		this.desconto = desconto;
-	}
-
-	public String getObsDesconto() {
-		return obsDesconto;
-	}
-
-	public void setObsDesconto(String obsDesconto) {
-		this.obsDesconto = obsDesconto;
-	}
-	
 }

@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Setter
 @NamedQueries(value = { @NamedQuery(name="PresencaMatricula.selectAll", query="select e from PresencaMatricula e") } )
 @Table(name = "PRESENCA_MATRICULA")
-public class PresencaMatricula implements Serializable {
+public class PresencaMatriculaRepository implements Serializable {
 	
 	static final long serialVersionUID = -5858676501460136026L;
 
@@ -22,11 +22,11 @@ public class PresencaMatricula implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_PRESENCA")
-	private Presenca presenca;
+	private PresencaRepository presenca;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_MATRICULA")
-	private Matricula matricula;
+	private MatriculaRepository matricula;
 	
 	@Column(name = "PRESENCA_DIA", nullable = false)
 	private boolean presencaDia;

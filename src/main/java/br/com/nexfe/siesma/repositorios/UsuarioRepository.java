@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -17,7 +17,7 @@ import java.util.Date;
 		@NamedQuery(name="Usuario.selectLogin", query="select e from Usuario e where e.email = :email and e.senha = :senha")
 } )
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario implements Serializable {
+public class UsuarioRepository implements Serializable {
 	
 	private static final long serialVersionUID = 2020574501561031630L;
 	
@@ -55,6 +55,6 @@ public class Usuario implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_NIVEL_ACESSO")
-	private NivelAcesso nivelAcesso;
+	private NivelAcessoRepository nivelAcesso;
 	
 }

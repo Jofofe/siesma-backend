@@ -1,4 +1,4 @@
-package br.com.nexfe.siesma.entidades;
+package br.com.nexfe.siesma.repositorios;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -15,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode
 @NamedQueries(value = { @NamedQuery(name="FormaPagamento.selectAllDate", query="select e from FormaPagamento e where :dataAtual between e.dtInicio and e.dtFim order by e.nome") } )
 @Table(name = "FORMA_PAGAMENTO")
-public class FormaPagamento implements Serializable {
+public class FormaPagamentoRepository implements Serializable {
 	
 	private static final long serialVersionUID = -1230554335503936347L;
 
@@ -29,7 +29,7 @@ public class FormaPagamento implements Serializable {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "ID_CLASSE_PAGAMENTO")
-	private ClassePagamento classePagamento;
+	private ClassePagamentoRepository classePagamento;
 	
 	@Column(name = "QTD_PARCELAS", nullable = false)
 	private Integer qtdParcelas;
@@ -40,7 +40,7 @@ public class FormaPagamento implements Serializable {
 	@Column(name = "DT_FIM", nullable = false)
 	private Date dtFim;
 	
-	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercial.class, mappedBy="formaPagamento")
-	private List<LancamentoComercial> lancamentosComerciais;
+	@OneToMany(fetch = FetchType.LAZY, targetEntity = LancamentoComercialRepository.class, mappedBy="formaPagamento")
+	private List<LancamentoComercialRepository> lancamentosComerciais;
 	
 }
