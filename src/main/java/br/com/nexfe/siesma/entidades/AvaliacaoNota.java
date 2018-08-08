@@ -22,7 +22,6 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@NamedQueries(value = { @NamedQuery(name="AvaliacaoNota.selectAll", query="select e from AvaliacaoNota e") } )
 @Table(name = "AVALIACAO_NOTA")
 public class AvaliacaoNota implements Serializable {
 	

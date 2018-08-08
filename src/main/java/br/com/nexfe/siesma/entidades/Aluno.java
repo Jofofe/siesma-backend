@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
+@NamedQueries(value = {
 		@NamedQuery(name="Aluno.selectAllNoDistinction", query="select e from Aluno e order by e.nome"),
 		@NamedQuery(name="Aluno.selectAll", query="select e from Aluno e where e.dtFimVinculo is null order by e.nome")
 } )

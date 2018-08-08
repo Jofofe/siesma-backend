@@ -12,12 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
-		@NamedQuery(name="Avaliacao.selectAllDate", query="select e from Avaliacao e where :dataAtual between e.disciplina.dtInicio and e.disciplina.dtFim "
-		+ " and :dataAtual between e.disciplina.modulo.dtInicio and e.disciplina.modulo.dtFim and e.disciplina.modulo.curso.inExcluido = 'N' order by e.disciplina.nome"),
-		@NamedQuery(name="Avaliacao.selectAllComNota", query="select distinct e from Avaliacao e INNER JOIN e.avaliacoesNotas an where :dataAtual between e.disciplina.dtInicio and e.disciplina.dtFim "
-				+ " and :dataAtual between e.disciplina.modulo.dtInicio and e.disciplina.modulo.dtFim and e.disciplina.modulo.curso.inExcluido = 'N'") 
-} )
 @Table(name = "AVALIACAO")
 public class Avaliacao implements Serializable {
 	
