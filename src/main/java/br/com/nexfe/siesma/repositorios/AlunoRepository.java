@@ -12,8 +12,8 @@ import java.util.List;
 public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 
     @Query("select e from Aluno e order by e.nome")
-    List<Aluno> findAllNoDistinction();
+    List<Aluno> findAllOrdenado();
 
     @Query("select e from Aluno e where e.dtFimVinculo is null order by e.nome")
-    List<Aluno> findAll();
+    List<Aluno> findAllSemFimVinculo();
 }

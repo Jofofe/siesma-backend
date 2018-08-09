@@ -14,8 +14,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="Desconto.selectAllDate", query="select e from Desconto e "
-		+ " where :dataAtual between e.dtInicio and e.dtFim order by e.nome") } )
 @Table(name = "DESCONTO")
 public class Desconto implements Serializable {
 	

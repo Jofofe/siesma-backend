@@ -13,13 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
-		@NamedQuery(name="Disciplina.selectAll", query="select e from Disciplina e order by e.nome"),
-		@NamedQuery(name="Disciplina.selectAllDate", query="select e from Disciplina e where :dataAtual between e.dtInicio and e.dtFim "
-		+ " and :dataAtual < e.modulo.dtFim and e.modulo.curso.inExcluido = 'N' order by e.nome"),
-		@NamedQuery(name="Disciplina.selectDisciplinasMagistradas", query="select e from Disciplina e join e.professoresDisciplinas pd where "
-				+ "pd.empregado.idUsuario in (:idEmpregado) order by e.nome")
-} )
 @Table(name = "DISCIPLINA")
 public class Disciplina implements Serializable {
 	
