@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="UnidadeMedida.selectAll", query="select e from UnidadeMedida e order by e.nomeUnidadeMedida") } )
 @Table(name = "UNIDADE_MEDIDA")
 public class UnidadeMedida implements Serializable {
 	

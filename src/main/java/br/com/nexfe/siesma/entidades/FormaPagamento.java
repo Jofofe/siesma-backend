@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="FormaPagamento.selectAllDate", query="select e from FormaPagamento e where :dataAtual between e.dtInicio and e.dtFim order by e.nome") } )
 @Table(name = "FORMA_PAGAMENTO")
 public class FormaPagamento implements Serializable {
 	

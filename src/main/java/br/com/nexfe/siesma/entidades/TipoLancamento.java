@@ -12,10 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
-		@NamedQuery(name="TipoLancamento.selectAll", query="select e from TipoLancamento e where e.status = 'Ativo' order by e.descricao"),
-		@NamedQuery(name="TipoLancamento.selectAllNoDistinction", query="select e from TipoLancamento e order by e.descricao") 
-} )
 @Table(name = "TIPO_LANCAMENTO")
 public class TipoLancamento implements Serializable {
 	

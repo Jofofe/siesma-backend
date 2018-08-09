@@ -13,12 +13,6 @@ import java.util.Date;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
-		@NamedQuery(name="LancamentoComercial.selectAllDate", query="select e from LancamentoComercial e where :dataAtual between e.formaPagamento.dtInicio and e.formaPagamento.dtFim "
-		+ " order by e.formaPagamento.nome"),
-		@NamedQuery(name="LancamentoComercial.selectEmpregados", query="select e from LancamentoComercial e where e.matricula is null"),
-		@NamedQuery(name="LancamentoComercial.selectAlunos", query="select e from LancamentoComercial e where e.empregado is null")
-} )
 @Table(name = "LANCAMENTO_COMERCIAL")
 public class LancamentoComercial implements Serializable {
 	

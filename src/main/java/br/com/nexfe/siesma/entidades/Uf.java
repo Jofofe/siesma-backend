@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="Uf.selectAll", query="select e from Uf e order by e.nomeUf") } )
 @Table(name = "UF")
 public class Uf implements Serializable {
 	

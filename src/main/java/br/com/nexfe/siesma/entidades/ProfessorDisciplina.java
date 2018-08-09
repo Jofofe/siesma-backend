@@ -10,9 +10,6 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@NamedQueries(value = { @NamedQuery(name="ProfessorDisciplina.selectAllDate", query="select e from ProfessorDisciplina e where :dataAtual between e.dtInicio and e.dtFim "
-		+ " and :dataAtual between e.disciplina.dtInicio and e.disciplina.dtFim and :dataAtual between e.disciplina.modulo.dtInicio and e.disciplina.modulo.dtFim "
-		+ " and e.disciplina.modulo.curso.inExcluido = 'N' and e.empregado.dtFimVinculo is null order by e.disciplina.nome") } )
 @Table(name = "PROFESSOR_DISCIPLINA")
 public class ProfessorDisciplina implements Serializable {
 	

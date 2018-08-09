@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="NivelAcesso.selectAll", query="select e from NivelAcesso e order by e.nomeAcesso") } )
 @Table(name = "NIVEL_ACESSO")
 public class NivelAcesso implements Serializable {
 	

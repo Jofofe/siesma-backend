@@ -12,12 +12,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { 
-		@NamedQuery(name="Empregado.selectAllNoDistinction", query="select e from Empregado e order by e.nome"),
-		@NamedQuery(name="Empregado.selectAll", query="select e from Empregado e where e.dtFimVinculo is null order by e.nome") ,
-		@NamedQuery(name="Empregado.listarProfessores", query="select e from Empregado e where e.funcao.idFuncao = 2 "
-				+ "and e.dtFimVinculo is null order by e.nome") 
-})
 @Table(name = "EMPREGADO")
 @PrimaryKeyJoinColumn(name="ID_EMPREGADO", referencedColumnName = "ID_USUARIO")
 public class Empregado extends Usuario{

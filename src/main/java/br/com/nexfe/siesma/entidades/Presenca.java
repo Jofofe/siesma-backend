@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode
-@NamedQueries(value = { @NamedQuery(name="Presenca.selectAll", query="select e from Presenca e") } )
 @Table(name = "PRESENCA")
 public class Presenca implements Serializable {
 	

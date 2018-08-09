@@ -9,7 +9,6 @@ import java.io.Serializable;
 @Entity
 @Getter
 @Setter
-@NamedQueries(value = { @NamedQuery(name="PresencaMatricula.selectAll", query="select e from PresencaMatricula e") } )
 @Table(name = "PRESENCA_MATRICULA")
 public class PresencaMatricula implements Serializable {
 	

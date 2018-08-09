@@ -13,9 +13,6 @@ import java.util.Date;
 @Setter
 @EqualsAndHashCode
 @Table(name = "USUARIO")
-@NamedQueries(value = { 
-		@NamedQuery(name="Usuario.selectLogin", query="select e from Usuario e where e.email = :email and e.senha = :senha")
-} )
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 	
