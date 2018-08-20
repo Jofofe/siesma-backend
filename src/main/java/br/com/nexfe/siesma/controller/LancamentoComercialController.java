@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/aluno")
+@RequestMapping("/lancamento-comercial")
 public class LancamentoComercialController {
 
     @Autowired

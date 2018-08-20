@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping("/aluno")
+@RequestMapping("/curso")
 public class CursoController {
 
     @Autowired
