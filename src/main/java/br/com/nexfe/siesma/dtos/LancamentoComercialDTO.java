@@ -28,22 +28,4 @@ public class LancamentoComercialDTO {
 	
 	private String obsRecebimento;
 	
-	@Transient
-	public String getNomeContemplado() {
-		if(this.matriculaDTO == null) {
-			return this.empregadoDTO.getNome();
-		} else {
-			return this.matriculaDTO.getAlunoDTO().getNome();
-		}
-	}
-	
-	@Transient
-	public String getTipoContemplado() {
-		if(this.matriculaDTO == null) {
-			return "Empregado";
-		} else {
-			return "Aluno";
-		}
-	}
-	
 }
